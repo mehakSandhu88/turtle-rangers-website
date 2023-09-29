@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js"></script>
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <header>
+    <img src="logo.jpg" width="80px" height="80px" class="logo" />
+  </header>
+  <div class="container">
+    <div class="bars"></div>
+  </div>
+  <main>
+    <img class="rit-image" src='skinpatchy.png' width="400" height="400" alt=''>
+    <p>Welcome to our software company! We are a team of passionate game developers who believe that video games can be
+      more than just a source of entertainment. Our mission is to use our skills to promote awareness for important
+      environmental issues like pollution, deforestation, and other eco-related topics. Our games are designed to be
+      engaging and fun, while also delivering important messages about the importance of protecting our environment.</p>
+
+    <img class="right-image" src='TMG.jpeg' width="400" height="300">
+    <p class="left-word">We are committed to using the latest technology and innovation to create immersive gaming
+      experiences that leave a lasting impression. Our team is made up of talented designers, programmers, artists, and
+      writers who all share a passion for making a difference.</p>
+
+    <img class="ri-image" src='off.jpeg' width="400" height="300">
+    <p class="lef-word">At our company, we are more than just game developers – we are environmental advocates who want
+      to use our skills
+      to make a difference in the world. We hope that you will join us on this important mission and enjoy our games
+      while also learning about the pressing environmental issues facing our planet today.</p>
+
+    <style>
+      .right-image {
+        float: right;
+        margin: 0 0 1rem 30rem;
+        width: 240px;
+        height: 180px;
+      }
+
+      .ri-image {
+        width: 270px;
+        height: 170px;
+        margin-bottom: -73px;
+      }
+
+      .rit-image {
+        width: 250px;
+        height: 250px;
+      }
+
+      .left-word {
+        float: left;
+        margin: 1rem 0 2rem -20rem;
+        padding-right: 21rem;
+      }
+
+      .lef-word {
+        margin-bottom: -34px;
+      }
+
+      main {
+        display: grid;
+        padding: 2rem;
+        grid-template-columns: 300px 1fr;
+        gap: 1rem;
+        align-items: center;
+        max-width: 800px;
+        margin: 0 auto;
+        font-size: 16px;
+        color: white;
+        overflow: auto;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      @media (max-width: 650px) {
+        main {
+          display: block;
+          font-size: 80%;
+        }
+
+        p {
+          position: relative;
+          margin: -3rem 0 2rem 1rem;
+          padding: 1rem;
+          background: rgba(white, 0.8);
+        }
+      }
+    </style>
+  </main>
+
+
+  <script>
+    $(document).ready(() => {
+      let typingElement = $('.typing');
+
+      typingElement.on('click', (e) => {
+        typingElement.removeClass('animate');
+        setTimeout(() => typingElement.addClass('animate'), 1);
+      })
+    });
+  </script>
+  <nav>
+    <h2>By: SkinPatchers</h2>
+    <div class="close">
+      <div></div>
+    </div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="game.html">About Us</a></li>
+      <li><a href="roles.html">Meet the Team</a></li>
+      <li><a href="AboutGame.html">Turtle Rangers</a></li>
+      <li><a href="rules.html">Code of Conduct</a></li>
+      <li><a href="contact.html">Code of Conduct</a></li>
+    </ul>
+  </nav>
+  <script>
+    const open = document.querySelector('.container');
+    const close = document.querySelector('.close');
+    var tl = gsap.timeline({defaults: {duration: 1, ease: 'expo.inOut'}});
+    open.addEventListener('click', () => {
+      if (tl.reversed()) {
+        tl.play();
+      } else {
+        tl.to('nav', {right: 0})
+          .to('nav', {height: '100vh'}, '-=.1')
+          .to('nav ul li a', {opacity: 1, pointerEvents: 'all', stagger: .2}, '-=.8')
+          .to('.close', {opacity: 1, pointerEvents: 'all'}, "-=.8")
+          .to('nav h2', {opacity: 1}, '-=1');
+      }
+    });
+
+    close.addEventListener('click', () => {
+      tl.reverse();
+    });
+  </script>
+</body>
+
+</html>
+
+
+
+
+
+

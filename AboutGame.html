@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js"></script>
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <header>
+    <img src="logo.jpg" width="80px" height="80px" class="logo" />
+  </header>
+  <div class="container">
+    <div class="bars"></div>
+  </div>
+  <h1>Turtle Rangers</h1>
+<p class="abouturt">Turtle Rangers is a single-player website game developed by SkinPatchers to raise awareness about pollution and how it harms wildlife. The game aims to help your chosen turtle reach the water on the beach while surviving on the moving and unpredictable track. Users are kept on their toes and encouraged to beat their best high score to reach their full potential. Objective: move the turtle to navigate through the unpredictable track. Try your best to move through as many obstacles. </p>
+
+<style>
+  .abouturt{
+    font-size: 25px;
+    color: white;
+    padding-right: 80px;
+  }
+</style>
+  
+  <nav>
+    <h2>SkinPatchers</h2>
+    <div class="close">
+      <div></div>
+    </div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="game.html">About Us</a></li>
+      <li><a href="roles.html">Meet the Team</a></li>
+      <li><a href="AboutGame.html">Turtle Rangers</a></li>
+      <li><a href="rules.html">Code of Conduct</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </nav>
+
+
+
+  <script>
+    const open = document.querySelector('.container');
+    const close = document.querySelector('.close');
+    var tl = gsap.timeline({defaults: {duration: 1, ease: 'expo.inOut'}});
+    open.addEventListener('click', () => {
+      if (tl.reversed()) {
+        tl.play();
+      } else {
+        tl.to('nav', {right: 0})
+          .to('nav', {height: '100vh'}, '-=.1')
+          .to('nav ul li a', {opacity: 1, pointerEvents: 'all', stagger: .2}, '-=.8')
+          .to('.close', {opacity: 1, pointerEvents: 'all'}, "-=.8")
+          .to('nav h2', {opacity: 1}, '-=1');
+      }
+    });
+
+    close.addEventListener('click', () => {
+      tl.reverse();
+    });
+  </script>
+</body>
+
+</html>
